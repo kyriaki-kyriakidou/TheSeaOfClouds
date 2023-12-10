@@ -1076,6 +1076,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &920543466
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 920543467}
+  m_Layer: 0
+  m_Name: ' Ball Spawn'
+  m_TagString: Untagged
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &920543467
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 920543466}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5.8, y: -6.26, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1279808550}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1056961497
 GameObject:
   m_ObjectHideFlags: 0
@@ -1256,6 +1287,7 @@ GameObject:
   - component: {fileID: 1279808549}
   - component: {fileID: 1279808553}
   - component: {fileID: 1279808552}
+  - component: {fileID: 1279808555}
   - component: {fileID: 1279808554}
   m_Layer: 0
   m_Name: ship
@@ -1327,7 +1359,8 @@ Transform:
   m_LocalPosition: {x: -9.8, y: 1.84, z: 0}
   m_LocalScale: {x: 0.2271387, y: 0.2372338, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 920543467}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1810,6 +1843,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   speed2: 6
+--- !u!114 &1279808555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1279808548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 352ecba7a8e753d46b5b65226b018e6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 7554755364225949540, guid: 94470c456295ccd43947a5af610550b9, type: 3}
+  fireSpeed: 10
+  spawnPoint: {fileID: 920543467}
 --- !u!1 &1349688272
 GameObject:
   m_ObjectHideFlags: 0

@@ -15,4 +15,6 @@ public class CloudMovement : MonoBehaviour
     {
         transform.Translate(-0.003f, 0, 0);
     }
+
+
 }

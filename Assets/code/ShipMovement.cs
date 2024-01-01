@@ -6,10 +6,11 @@ public class ShipMovement : MonoBehaviour
 {
     public float speed = 0.5f;
     public float speed2 = 0.6f;
+    Rigidbody2D rb;
     // Start is called before the first frame update
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -43,5 +44,11 @@ public class ShipMovement : MonoBehaviour
             v.y = -2.6f;
             transform.position = v;
         }
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Collectable")
+            Destroy(collision.gameObject);
     }
 }

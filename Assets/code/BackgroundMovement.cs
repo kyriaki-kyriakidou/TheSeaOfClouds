@@ -13,6 +13,7 @@ public class BackgroundMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GameManager.instance.myState != GameManager.State.playing) return;
         transform.Translate(-0.001f, 0, 0);
     }
 }

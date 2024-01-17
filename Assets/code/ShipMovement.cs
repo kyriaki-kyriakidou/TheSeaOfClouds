@@ -16,6 +16,8 @@ public class ShipMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GameManager.instance.myState != GameManager.State.playing) return;
+        { 
         transform.Translate(Input.GetAxis("Horizontal") * speed * Time.deltaTime, Input.GetAxis("Vertical") * speed2 * Time.deltaTime, 0);
         if (transform.position.x > 12f)
         {
@@ -44,11 +46,13 @@ public class ShipMovement : MonoBehaviour
             v.y = -2.6f;
             transform.position = v;
         }
+        }
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Collectable")
+           
             Destroy(collision.gameObject);
     }
 }

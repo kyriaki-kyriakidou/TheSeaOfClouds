@@ -14,7 +14,7 @@ public class CloudMovement : MonoBehaviour
     void Update()
     {
         if (GameManager.instance.myState != GameManager.State.playing) return;
-        transform.Translate(-0.003f, 0, 0);
+        transform.Translate(-0.005f, 0, 0);
     }
 
 

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Collectable
   - Enemy
+  - BG
   layers:
   - Default
   - TransparentFX

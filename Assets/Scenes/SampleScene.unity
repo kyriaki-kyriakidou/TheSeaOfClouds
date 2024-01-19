@@ -1446,7 +1446,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 6203026837630486362, guid: b2e971d335e5b794398b0e1839712984, type: 3}
   enemyPrefab2: {fileID: 1853069318}
-  BGPrefab: {fileID: 0}
+  BGPrefab: {fileID: 6292750453259824489, guid: f4fd2f546b00df24c90feb159d3b84c7, type: 3}
 --- !u!1 &986127580
 GameObject:
   m_ObjectHideFlags: 0

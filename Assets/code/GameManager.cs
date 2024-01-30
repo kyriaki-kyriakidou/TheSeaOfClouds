@@ -7,8 +7,12 @@ using TMPro;
 public class GameManager : MonoBehaviour
 {
     public TextMeshProUGUI messagesTxt;
-    int score = 0;
+    
     float time = 30;
+    public int maxscore = 100;
+    public int currentscore;
+    public Score scorebar;
+
 
     public static GameManager instance;
 
@@ -31,8 +35,9 @@ public class GameManager : MonoBehaviour
                 if (Input.GetButtonDown("Fire1"))
                 {
                     myState = State.playing;
-                    time = 30;
+                    
                     messagesTxt.text = "";
+                    
                 }
                 break;
             case State.playing:
@@ -59,9 +64,5 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void IncreaseScore(int inc)
-    {
-        score += inc;
-        
-    }
+ 
 }

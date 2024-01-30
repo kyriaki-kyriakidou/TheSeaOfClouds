@@ -14,6 +14,6 @@ public class BackgroundMovement : MonoBehaviour
     void Update()
     {
         if (GameManager.instance.myState != GameManager.State.playing) return;
-        transform.Translate(-0.002f, 0, 0);
+        transform.Translate(-0.006f, 0, 0);
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Score : MonoBehaviour
 {
-
+    
     public Slider slider2;
     public void setmaxscore(int score)
     {

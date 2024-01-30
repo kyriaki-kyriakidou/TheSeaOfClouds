@@ -8,10 +8,11 @@ public class GameManager : MonoBehaviour
 {
     public TextMeshProUGUI messagesTxt;
     
-    float time = 30;
+    float time = 100;
+/*    //scoretimer
+    public Score scoretimer;
     public int maxscore = 100;
-    public int currentscore;
-    public Score scorebar;
+    public int currentscore;*/
 
 
     public static GameManager instance;
@@ -23,6 +24,11 @@ public class GameManager : MonoBehaviour
     {
         instance = this;
         myState = State.stopped;
+
+        
+/*        //score
+        currentscore = maxscore;
+        scoretimer.setmaxscore(maxscore);*/
     }
 
     // Update is called once per frame
@@ -42,7 +48,7 @@ public class GameManager : MonoBehaviour
                 break;
             case State.playing:
                 time -= Time.deltaTime;
-               
+                //GiveScore(time);
                 if (time < 0)
                 {
                     myState = State.stopped;
@@ -64,5 +70,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
- 
+/*    public void GiveScore(int score)
+    {
+        currentscore = score;
+        scoretimer.setscore(currentscore);
+    }*/
 }

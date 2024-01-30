@@ -73,7 +73,7 @@ public class ShipMovement : MonoBehaviour
         if (collision.gameObject.tag == "Collectable")
         {
             Destroy(collision.gameObject);
-            GiveScore(10);
+            GiveScore(20);
 
         }
 
@@ -90,7 +90,7 @@ public class ShipMovement : MonoBehaviour
         healthBar.sethealth(currentHealth);
     }
 
-    void GiveScore(int score)
+    public void GiveScore(int score)
     {
         currentscore -= score;
         scorebar.setscore(currentscore);

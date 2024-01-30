@@ -6072,9 +6072,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   messagesTxt: {fileID: 1320841021}
-  maxscore: 100
-  currentscore: 0
-  scorebar: {fileID: 0}
   myState: 0
 --- !u!4 &986127582
 Transform:
@@ -9959,11 +9956,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4623990104909146927, guid: 2d41499f42a49e346bf320bd2a23cd27, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 60.5
+      value: 58
       objectReference: {fileID: 0}
     - target: {fileID: 4623990104909146927, guid: 2d41499f42a49e346bf320bd2a23cd27, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 15.86
+      value: 14.9
       objectReference: {fileID: 0}
     - target: {fileID: 4623990104909146927, guid: 2d41499f42a49e346bf320bd2a23cd27, type: 3}
       propertyPath: m_LocalPosition.z

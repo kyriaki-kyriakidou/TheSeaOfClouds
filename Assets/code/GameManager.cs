@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
             case State.playing:
                 time -= Time.deltaTime;
                 //GiveScore(time);
-                if (time < 0)
+                if (/*ShipMovement.instance.GiveScore(30) == 0*/time<0)
                 {
                     myState = State.stopped;
                     messagesTxt.text = "Game Over wake up! Press Fire to dream again";

@@ -16,6 +16,11 @@ public class ShipMovement : MonoBehaviour
     public int maxscore = 100;
     public int currentscore;
     public Score scorebar;
+  /*  //gamemanager
+    public static ShipMovement instance;*/
+
+    //timer
+    int timer;
 
     void Start()
     {
@@ -28,10 +33,14 @@ public class ShipMovement : MonoBehaviour
         //score
         currentscore = maxscore;
         scorebar.setmaxscore(maxscore);
+
+/*        //gamemanager
+        instance = this;*/
     }
 
     void Update()
     {
+
         if (GameManager.instance.myState != GameManager.State.playing) return;
         { 
         transform.Translate(Input.GetAxis("Horizontal") * speed * Time.deltaTime, Input.GetAxis("Vertical") * speed2 * Time.deltaTime, 0);
@@ -66,6 +75,9 @@ public class ShipMovement : MonoBehaviour
         }
 
         }
+
+        //timer
+        Scoretimer(1);
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -73,7 +85,7 @@ public class ShipMovement : MonoBehaviour
         if (collision.gameObject.tag == "Collectable")
         {
             Destroy(collision.gameObject);
-            GiveScore(20);
+            GiveScore(30);
 
         }
 
@@ -92,7 +104,15 @@ public class ShipMovement : MonoBehaviour
 
     public void GiveScore(int score)
     {
-        currentscore -= score;
+        currentscore += score;
         scorebar.setscore(currentscore);
+      
+    }
+
+    public void Scoretimer(int timer)
+    {
+        currentscore -= timer;
+        scorebar.setscore(currentscore);
+       
     }
 }

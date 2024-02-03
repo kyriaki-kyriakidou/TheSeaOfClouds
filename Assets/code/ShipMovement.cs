@@ -19,8 +19,6 @@ public class ShipMovement : MonoBehaviour
   /*  //gamemanager
     public static ShipMovement instance;*/
 
-    //timer
-    int timer;
 
     void Start()
     {

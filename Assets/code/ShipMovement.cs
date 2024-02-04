@@ -16,10 +16,12 @@ public class ShipMovement : MonoBehaviour
     public int maxscore = 100;
     public int currentscore;
     public Score scorebar;
-  /*  //gamemanager
-    public static ShipMovement instance;*/
-
-
+    /*  //gamemanager
+      public static ShipMovement instance;*/
+    //sield
+    private bool shielded;
+    [SerializeField]
+    private GameObject shield;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -32,13 +34,15 @@ public class ShipMovement : MonoBehaviour
         currentscore = maxscore;
         scorebar.setmaxscore(maxscore);
 
-/*        //gamemanager
-        instance = this;*/
+        /*        //gamemanager
+                instance = this;*/
+        //shield
+        shielded = false;
     }
 
     void Update()
     {
-
+        
         if (GameManager.instance.myState != GameManager.State.playing) return;
         { 
         transform.Translate(Input.GetAxis("Horizontal") * speed * Time.deltaTime, Input.GetAxis("Vertical") * speed2 * Time.deltaTime, 0);
@@ -76,6 +80,26 @@ public class ShipMovement : MonoBehaviour
 
         //timer
         Scoretimer(1);
+
+        //shield
+        CheckShield();
+    }
+
+    void CheckShield()
+    {
+        if (Input.GetKey(KeyCode.E)&&!shielded)
+        {
+            shield.SetActive(true);
+            shielded = true;
+            //code for turning off the shield
+            Invoke("Noshield", 3f);
+        }
+    }
+
+    void Noshield()
+    {
+        shield.SetActive(false);
+        shielded = false;
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -89,7 +113,11 @@ public class ShipMovement : MonoBehaviour
 
         if (collision.gameObject.tag == "Enemy")
         {
-            TakeDamage(20);
+            if (!shielded)
+            {
+                TakeDamage(20);
+            }
+            
         }
 
     }

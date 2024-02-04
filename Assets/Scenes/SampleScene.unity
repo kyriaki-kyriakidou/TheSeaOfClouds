@@ -5675,7 +5675,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &654828714
 Transform:
   m_ObjectHideFlags: 0
@@ -5698,7 +5698,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 654828713}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -8505,6 +8505,7 @@ MonoBehaviour:
   maxscore: 100
   currentscore: 0
   scorebar: {fileID: 106926842}
+  shield: {fileID: 654828713}
 --- !u!114 &1279808555
 MonoBehaviour:
   m_ObjectHideFlags: 0

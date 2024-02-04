@@ -6,12 +6,19 @@ public class ThunderTrigger : MonoBehaviour
 {
     public GameObject enemyPrefab;
     float timer = 50;
-    void Update()
+    bool enemyCreated = false;
+
+    void Start()
+    {
+    
+    
+    }
+        void Update()
     {
         timer = timer - 10;
     }
 
-    bool enemyCreated = false;
+    
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (!enemyCreated)
@@ -20,6 +27,8 @@ public class ThunderTrigger : MonoBehaviour
             enemyCreated = true;
         }
         if (timer < 0)
-        { enemyCreated = false; }
+        {
+            enemyPrefab.SetActive(false);
+        }
     }
 }

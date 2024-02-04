@@ -115,6 +115,7 @@ public class ShipMovement : MonoBehaviour
         {
             if (!shielded)
             {
+                if (GameManager.instance.myState != GameManager.State.playing) return;
                 TakeDamage(20);
             }
             

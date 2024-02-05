@@ -3,10 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public TextMeshProUGUI messagesTxt;
+
+    public ShipMovement shipMovement;
+
+    public GameObject gameWinImage;
+    public GameObject tutorialImage;
     
     float time = 100;
 /*    //scoretimer
@@ -17,7 +23,7 @@ public class GameManager : MonoBehaviour
 
     public static GameManager instance;
 
-    public enum State { stopped, playing, paused }
+    public enum State { stopped, playing, paused, gameOver, gameWon }
     public State myState;
 
     void Start()
@@ -38,21 +44,23 @@ public class GameManager : MonoBehaviour
         {
             case State.stopped:
                 messagesTxt.text = "press fire to start dreaming";
+                tutorialImage.SetActive(true);
                 if (Input.GetButtonDown("Fire1"))
                 {
                     myState = State.playing;
                     
                     messagesTxt.text = "";
                     time = 100;
+
+                    tutorialImage.SetActive(false);
                 }
                 break;
             case State.playing:
                 time -= Time.deltaTime;
                 //GiveScore(time);
-                if (/*ShipMovement.instance.GiveScore(30) == 0*/time< 0)
+                if (shipMovement.currentscore <= 0 || shipMovement.currentHealth <= 0)
                 {
-                    myState = State.stopped;
-                    messagesTxt.text = "Game Over wake up! Press Fire to dream again";
+                    myState = State.gameOver;
                 }
                 if (Input.GetKeyDown(KeyCode.P))
                 {
@@ -65,7 +73,24 @@ public class GameManager : MonoBehaviour
                 {
                     myState = State.playing;
                     messagesTxt.text = "";
+
                 }
+                break;
+            case State.gameOver:
+                messagesTxt.text = "Game Over wake up! Press Fire to dream again";
+
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
+                    //myState = State.playing;
+                    //messagesTxt.text = "";
+
+                }
+                break;
+            case State.gameWon:
+                //Show Image
+                gameWinImage.SetActive(true);
                 break;
         }
     }

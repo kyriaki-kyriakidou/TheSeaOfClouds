@@ -4,22 +4,29 @@ using UnityEngine;
 
 public class ShipMovement : MonoBehaviour
 {
+    public GameManager gameManager;
+
     public float speed = 0.5f;
     public float speed2 = 0.6f;
     Rigidbody2D rb;
     // Start is called before the first frame update
 
+    [Header("Health")]
     public int maxHealth = 100;
     public int currentHealth;
     public newsc healthBar;
 
+    [Header("Score")]
     public int maxscore = 100;
     public int currentscore;
+    public float scoreSubtractionDelay;
     public Score scorebar;
     /*  //gamemanager
       public static ShipMovement instance;*/
     //sield
     private bool shielded;
+    bool hasShield;
+    public Animator shieldAnimator;
     [SerializeField]
     private GameObject shield;
     void Start()
@@ -38,11 +45,12 @@ public class ShipMovement : MonoBehaviour
                 instance = this;*/
         //shield
         shielded = false;
+
+        StartCoroutine(ScoreTimer());
     }
 
     void Update()
     {
-        
         if (GameManager.instance.myState != GameManager.State.playing) return;
         { 
         transform.Translate(Input.GetAxis("Horizontal") * speed * Time.deltaTime, Input.GetAxis("Vertical") * speed2 * Time.deltaTime, 0);
@@ -79,20 +87,40 @@ public class ShipMovement : MonoBehaviour
         }
 
         //timer
-        Scoretimer(1);
+        //Scoretimer(1);
+        
 
         //shield
         CheckShield();
     }
 
+    IEnumerator ScoreTimer()
+    {
+        while (currentscore > 0)
+        {            
+            if (gameManager.myState == GameManager.State.playing)
+            {
+                currentscore -= 1;
+
+                scorebar.setscore(currentscore);
+
+                yield return new WaitForSeconds(scoreSubtractionDelay);
+            }
+
+            yield return null;
+        }
+    }
+
     void CheckShield()
     {
-        if (Input.GetKey(KeyCode.E)&&!shielded)
+        if (Input.GetKey(KeyCode.Space) && !shielded && hasShield)
         {
             shield.SetActive(true);
             shielded = true;
             //code for turning off the shield
             Invoke("Noshield", 3f);
+
+            shieldAnimator.enabled = true;
         }
     }
 
@@ -107,7 +135,7 @@ public class ShipMovement : MonoBehaviour
         if (collision.gameObject.tag == "Collectable")
         {
             Destroy(collision.gameObject);
-            GiveScore(30);
+            GiveScore(10);
 
         }
 
@@ -119,6 +147,14 @@ public class ShipMovement : MonoBehaviour
                 TakeDamage(20);
             }
             
+        }
+
+        if (collision.gameObject.tag == "Shield")
+        {
+            hasShield = true;
+            Destroy(collision.gameObject);
+
+
         }
 
     }

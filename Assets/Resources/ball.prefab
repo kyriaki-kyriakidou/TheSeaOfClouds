@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8516096981419560364}
   - component: {fileID: 5131103215584893413}
   - component: {fileID: 755453964786363237}
+  - component: {fileID: 2382649513061822323}
   m_Layer: 0
   m_Name: ball
   m_TagString: Untagged
@@ -115,6 +116,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e662d4b0f0921eb4190c778dee41942a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeout: 5
 --- !u!50 &755453964786363237
 Rigidbody2D:
   serializedVersion: 4
@@ -136,3 +138,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &2382649513061822323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7554755364225949540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ddf51098d069fa4990b1dc0378b9219, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1

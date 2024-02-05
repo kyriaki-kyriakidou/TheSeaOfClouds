@@ -7,14 +7,14 @@ public class Score : MonoBehaviour
 {
     
     public Slider slider2;
-    public void setmaxscore(int score)
+    public void setmaxscore(float score)
     {
         slider2.maxValue = score;
         slider2.value = score;
 
     }
 
-    public void setscore(int score)
+    public void setscore(float score)
     {
         slider2.value = score;
 

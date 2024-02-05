@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BackgroundMovement : MonoBehaviour
 {
+    public float movementSpeed = -0.01f;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,6 +15,6 @@ public class BackgroundMovement : MonoBehaviour
     void Update()
     {
         if (GameManager.instance.myState != GameManager.State.playing) return;
-        transform.Translate(-0.01f, 0, 0);
+        transform.Translate(movementSpeed * Time.deltaTime, 0, 0);
     }
 }

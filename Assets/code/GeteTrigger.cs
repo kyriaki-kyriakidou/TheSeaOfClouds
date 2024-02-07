@@ -6,8 +6,9 @@ using UnityEngine.Events;
 public class GeteTrigger : MonoBehaviour
 {
     public GameObject enemyPrefab;
-    public GameObject enemyPrefab2;
+
     public GameObject BGPrefab;
+
     bool enemyCreated = false;
     bool BGCreated = false;
     //rain animation
@@ -21,8 +22,7 @@ public class GeteTrigger : MonoBehaviour
         {
             Instantiate(enemyPrefab);
             enemyCreated = true;
-            Instantiate(enemyPrefab2);
-            enemyCreated = true;
+
 
         }
         if (!BGCreated)
@@ -32,7 +32,7 @@ public class GeteTrigger : MonoBehaviour
         }
 
 
-        if(myEvent==null)
+        if (myEvent == null)
         {
             print("GeteTrigger was triggered but myEvent was null");
         }
@@ -41,5 +41,10 @@ public class GeteTrigger : MonoBehaviour
             print("GeteTrigger Activated.Triggered" + myEvent);
             myEvent.Invoke();
         }
+
+
     }
+    
+
 }
+

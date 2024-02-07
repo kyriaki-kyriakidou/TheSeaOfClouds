@@ -77,7 +77,7 @@ public class GameManager : MonoBehaviour
                 }
                 break;
             case State.gameOver:
-                messagesTxt.text = "Game Over wake up! Press Fire to dream again";
+                messagesTxt.text = "Game Over wake up! Press E to dream again";
 
                 if (Input.GetKeyDown(KeyCode.E))
                 {

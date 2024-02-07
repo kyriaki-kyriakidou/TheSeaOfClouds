@@ -56,17 +56,17 @@ public class ShipMovement : MonoBehaviour
         transform.Translate(Input.GetAxis("Horizontal") * speed * Time.deltaTime, Input.GetAxis("Vertical") * speed2 * Time.deltaTime, 0);
        
             
-            if (transform.position.x > 12f)
+            if (transform.position.x > 6f)
         {
             Vector3 v = transform.position;
-            v.x = -10.35f;
+            v.x = -11f;
             transform.position = v;
         }
 
-        if (transform.position.x < -11f)
+        if (transform.position.x < -12f)
         {
             Vector3 v = transform.position;
-            v.x = 11f;
+            v.x = 5f;
             transform.position = v;
         }
 
@@ -144,7 +144,7 @@ public class ShipMovement : MonoBehaviour
             if (!shielded)
             {
                 if (GameManager.instance.myState != GameManager.State.playing) return;
-                TakeDamage(20);
+                TakeDamage(5);
             }
             
         }

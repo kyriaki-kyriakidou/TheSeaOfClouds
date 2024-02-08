@@ -15,6 +15,7 @@ public class ThunderTrigger : MonoBehaviour
     //rain animation
     void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.gameObject.GetComponent<ShipMovement>() == null) return;
         if (myEvent2 == null)
         {
             print("GeteTrigger was triggered but myEvent was null");
@@ -34,7 +35,7 @@ public class ThunderTrigger : MonoBehaviour
             print("GeteTrigger Activated.Triggered" + myEvent);
             myEvent.Invoke();
         }
-
+        GetComponent<BoxCollider2D>().enabled = false;
     }
 
 

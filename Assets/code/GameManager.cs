@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
         switch (myState)
         {
             case State.stopped:
-                messagesTxt.text = "press fire to start dreaming";
+                messagesTxt.text = "press Ctrl to start dreaming";
                 tutorialImage.SetActive(true);
                 if (Input.GetButtonDown("Fire1"))
                 {
@@ -91,6 +91,7 @@ public class GameManager : MonoBehaviour
             case State.gameWon:
                 //Show Image
                 gameWinImage.SetActive(true);
+                messagesTxt.text = "              You Won!!";
                 break;
         }
     }

@@ -16,8 +16,10 @@ public class GeteTrigger : MonoBehaviour
     public UnityEvent myEvent;
 
 
+
     void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.gameObject.GetComponent<ShipMovement>() == null) return;
         if (!enemyCreated)
         {
             Instantiate(enemyPrefab);
@@ -42,7 +44,7 @@ public class GeteTrigger : MonoBehaviour
             myEvent.Invoke();
         }
 
-
+        GetComponent<BoxCollider2D>().enabled = false;
     }
     
 

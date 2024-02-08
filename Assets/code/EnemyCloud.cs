@@ -17,6 +17,7 @@ public class EnemyCloud : MonoBehaviour
 
     void Update()
     {
+        if (GameManager.instance.myState != GameManager.State.playing) return;
         switch (myState)
         {
             case State.patrol:
